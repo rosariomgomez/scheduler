@@ -11,18 +11,33 @@
 </p>
 
 <p>
+  <b>Time start:</b>
+  <%= @event.time_start %>
+</p>
+
+<p>
+  <b>Time end:</b>
+  <%= @event.time_end %>
+</p>
+
+<p>
   <b>Day end:</b>
   <%= @event.day_end %>
 </p>
 
 <p>
-  <b>Recurring rules:</b>
+  <b>Rules:</b>
   <%= @event.occurrences %>
 </p>
 
 <p>
-  <b>Schedule:</b>
-  <%= @schedule %>
+  <b>Schedule</b>
+   <%= @schedule.to_s %>
+</p>
+
+<p>
+  <b>All recurrences</b>
+   <%= @schedule.all_occurrences %>
 </p>
 
 
