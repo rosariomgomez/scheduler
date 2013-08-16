@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Day start:</b>
+  <%= @event.day_start %>
+</p>
+
+<p>
+  <b>Day end:</b>
+  <%= @event.day_end %>
+</p>
+
+<p>
+  <b>Recurring rules:</b>
+  <%= @event.occurrences %>
+</p>
+
+<p>
+  <b>Schedule:</b>
+  <%= @schedule %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

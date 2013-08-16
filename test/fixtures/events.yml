@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  day_start: 2013-08-15
+  day_end: 2013-08-15
+  occurrences: MyString
+
+two:
+  name: MyString
+  day_start: 2013-08-15
+  day_end: 2013-08-15
+  occurrences: MyString
