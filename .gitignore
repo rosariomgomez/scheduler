@@ -11,7 +11,7 @@
 /db/*.sql
 
 #Ignore migrations
-/db/migrate/*
+/db/migrate
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
