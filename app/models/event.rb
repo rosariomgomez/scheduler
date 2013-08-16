@@ -8,15 +8,22 @@ class Event < ActiveRecord::Base
   
   def schedule
     schedule = Schedule.new(self.day_start)
-    schedule.add_recurrence_rule(RecurringSelect.dirty_hash_to_rule(self.occurrences).until(self.day_end))
-    #schedule.to_s
+    if self.occurrences.blank?
+      #no hago nada
+    else
+      schedule.add_recurrence_rule(RecurringSelect.dirty_hash_to_rule(self.occurrences).until(self.day_end))
+    end
     schedule.all_occurrences
   end
 
   protected
- 
+
   def set_occurrences
-    write_attribute(:occurrences, RecurringSelect.dirty_hash_to_rule(self.recurring_rules).to_hash)
+    if RecurringSelect.is_valid_rule?(self.recurring_rules)
+      write_attribute(:occurrences, RecurringSelect.dirty_hash_to_rule(self.recurring_rules).to_hash)
+    else
+      write_attribute(:occurrences, nil)
+    end
   end
 
 end
