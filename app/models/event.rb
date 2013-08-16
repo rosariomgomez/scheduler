@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   include IceCube
-  attr_accessible :day_end, :day_start, :name, :occurrences, :recurring_rules
+  attr_accessible :day_end, :day_start, :time_start, :time_end, :name, :occurrences, :recurring_rules
   serialize :occurrences, Hash
   before_save :set_occurrences
 
@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
     else
       schedule.add_recurrence_rule(RecurringSelect.dirty_hash_to_rule(self.occurrences).until(self.day_end))
     end
-    schedule.all_occurrences
+    schedule
   end
 
   protected
